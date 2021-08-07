@@ -10,3 +10,4 @@ CREATE TABLE players(
   blocks SMALLINT,
   assists SMALLINT
 );
+CREATE TABLE taco(taco_id SERIAL PRIMARY KEY, topping STRING);
