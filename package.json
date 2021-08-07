@@ -1,26 +1,38 @@
 {
-  "name": "top10_be",
+  "name": "top-ten-be",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
+    "test:watch": "npm run test -- --watch",
+    "start": "node -r dotenv/config server.js",
+    "start:watch": "nodemon -r dotenv/config server.js",
+    "setup-db": "node -r dotenv/config setup-db.js",
+    "setup-heroku": "heroku run npm run setup-db"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/David-Del1/Top10_BE.git"
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/David-Del1/Top10_BE/issues"
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@types/jest": "^26.0.24",
+    "@types/pg": "^8.6.1",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "supertest": "^6.1.4"
   },
-  "homepage": "https://github.com/David-Del1/Top10_BE#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.12",
     "pg": "^8.7.1"
   }
 }
