@@ -1,11 +1,12 @@
 DROP TABLE IF EXISTS players;
 CREATE TABLE players (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(60),
-  years_played VARCHAR(60),
-  championships_won SMALLINT,
-  total_points BIGINT,
-  fg_percentage DECIMAL(4, 2),
-  blocks SMALLINT,
-  assists SMALLINT
+  name VARCHAR(60) NOT NULL,
+  image TEXT NOT NULL,
+  years_played VARCHAR(60) NOT NULL,
+  championships_won SMALLINT NOT NULL,
+  total_points BIGINT NOT NULL,
+  fg_percentage DECIMAL(4, 2) NOT NULL,
+  blocks SMALLINT NOT NULL,
+  assists SMALLINT NOT NULL
 );
